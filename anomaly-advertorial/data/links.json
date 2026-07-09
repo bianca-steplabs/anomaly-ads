@@ -1,0 +1,26 @@
+{
+  "_comment": "Edit the URLs below to point CTAs anywhere you want. 'label' text also updates the button copy on the page. Reload the page after saving. Keys map to elements via data-link / data-link-label attributes in index.html.",
+  "_checkout_links": "Each plan URL clears the cart, adds the subscription (selling plan) + free gifts (one-time), and goes straight to checkout. The FREE GIFTS automatic discount zeroes out frother+canister; FREE GIFT - STICK TRAVEL zeroes out the stick pack (family only). Variant IDs: Adults Unflavored 52818497896813, Kids Berry 53073427988845, Frother 52842350084461, Canister 52842351591789, Stick Travel Unflavored 53513002090861 (Berry 53513002058093). Selling plans: 4-Week Adults 693044937069, 12-Week Adults 693068857709, Family 693054964077.",
+  "shop_the_sale": "#pricing",
+  "hero_stat_cta": "#",
+  "plans": {
+    "twelve_week": {
+      "label": "START 12-WEEK PROTOCOL",
+      "url": "https://tryanomalyhealth.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%255B0%255D%255Bid%255D%3D52818497896813%26items%255B0%255D%255Bselling_plan%255D%3D693068857709%26items%255B0%255D%255Bquantity%255D%3D3%26items%255B1%255D%255Bid%255D%3D52842350084461%26items%255B1%255D%255Bquantity%255D%3D1%26items%255B2%255D%255Bid%255D%3D52842351591789%26items%255B2%255D%255Bquantity%255D%3D1%26return_to%3D%252Fcheckout"
+    },
+    "adults": {
+      "label": "START 4-WEEK PROTOCOL",
+      "url": "https://tryanomalyhealth.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%255B0%255D%255Bid%255D%3D52818497896813%26items%255B0%255D%255Bselling_plan%255D%3D693044937069%26items%255B0%255D%255Bquantity%255D%3D1%26items%255B1%255D%255Bid%255D%3D52842350084461%26items%255B1%255D%255Bquantity%255D%3D1%26items%255B2%255D%255Bid%255D%3D52842351591789%26items%255B2%255D%255Bquantity%255D%3D1%26return_to%3D%252Fcheckout"
+    },
+    "family": {
+      "label": "START FAMILY PROTOCOL",
+      "url": "https://tryanomalyhealth.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%255B0%255D%255Bid%255D%3D52818497896813%26items%255B0%255D%255Bselling_plan%255D%3D693054964077%26items%255B0%255D%255Bquantity%255D%3D1%26items%255B1%255D%255Bid%255D%3D53073427988845%26items%255B1%255D%255Bselling_plan%255D%3D693054964077%26items%255B1%255D%255Bquantity%255D%3D1%26items%255B2%255D%255Bid%255D%3D52842350084461%26items%255B2%255D%255Bquantity%255D%3D1%26items%255B3%255D%255Bid%255D%3D52842351591789%26items%255B3%255D%255Bquantity%255D%3D1%26items%255B4%255D%255Bid%255D%3D53513002090861%26items%255B4%255D%255Bquantity%255D%3D1%26return_to%3D%252Fcheckout"
+    }
+  },
+  "guarantee_cta": "#",
+  "legal": {
+    "privacy": "#",
+    "terms": "#",
+    "shipping": "#"
+  }
+}

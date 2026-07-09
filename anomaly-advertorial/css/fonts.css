@@ -1,0 +1,20 @@
+/* ===========================================================================
+   Söhne — self-hosted (user-provided license)
+   Used for badges, small labels, captions and micro-copy.
+   =========================================================================== */
+
+@font-face {
+  font-family: "Söhne";
+  src: url("../assets/fonts/Sohne-Buch.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Söhne";
+  src: url("../assets/fonts/Sohne-Kraftig.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}

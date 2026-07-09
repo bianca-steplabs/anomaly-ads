@@ -1,0 +1,340 @@
+/* ===========================================================================
+   Anomaly (ANM) — Advertorial LP
+   Design tokens + custom component styles.
+   Tailwind (CDN) handles utilities; this file holds tokens, @font-face bridge,
+   and the pieces Tailwind utilities can't express cleanly.
+   =========================================================================== */
+
+:root {
+  /* Brand colors (from Figma "NEW COLORS") */
+  --anm-ink:   #231f20; /* dark hero / dark sections */
+  --anm-black: #1d1d1d;
+  --anm-cream: #f5f1eb;
+  --anm-lilac: #ccc3ff; /* primary accent, badges, CTA */
+  --anm-lilac-dark: #b3a8f5; /* CTA hover */
+  --anm-white: #f1f1f1;
+  --anm-line:  rgba(29, 29, 29, 0.12); /* dividers on cream */
+  --anm-line-dark: rgba(241, 241, 241, 0.16); /* dividers on dark */
+
+  /* Type families */
+  --font-serif: "Besley", Georgia, "Times New Roman", serif;
+  --font-sans:  "Lexend", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-mono-ui: "Söhne", "Lexend", system-ui, sans-serif;
+
+  /* Layout */
+  --container: 1200px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+}
+
+/* ---- Base ---------------------------------------------------------------- */
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--anm-black);
+  background: var(--anm-cream);
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* Visible, on-brand focus ring for keyboard users */
+:focus-visible {
+  outline: 3px solid var(--anm-lilac);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.font-serif { font-family: var(--font-serif); }
+.font-sans  { font-family: var(--font-sans); }
+.font-sohne { font-family: var(--font-mono-ui); }
+
+/* Visually hidden SVG symbol sprite (icons referenced via <use>) */
+.icon-sprite { position: absolute; }
+
+/* Type-specific tracking overrides pulled from Figma (kept out of inline style) */
+.tracking-wide-sohne { letter-spacing: 0.03em; }
+.hero-heading-tracking { letter-spacing: 0.02em; }
+
+/* ---- Skip link ----------------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  z-index: 1000;
+  background: var(--anm-lilac);
+  color: #000;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono-ui);
+  font-size: 14px;
+  transition: top 0.2s ease;
+}
+.skip-link:focus { top: 12px; }
+
+/* ---- Reveal animation base state ----------------------------------------
+   JS adds .is-in to trigger. Without JS or with reduced-motion, content is
+   fully visible (progressive enhancement — see .reveal reset below).        */
+.reveal { opacity: 0; transform: translateY(24px); }
+.reveal.is-in { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s ease; }
+
+/* If JS is off, never hide content */
+.no-js .reveal { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal.is-in { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+/* ---- Rating stars -------------------------------------------------------- */
+.stars { display: inline-flex; gap: 2px; }
+.stars svg { width: 1em; height: 1em; }
+
+/* ---- Badge (lilac pill) -------------------------------------------------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--anm-lilac);
+  color: #000;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono-ui);
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.03em;
+}
+.badge svg { width: 12px; height: 12px; flex: none; }
+
+/* ---- CTA button ---------------------------------------------------------- */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 12px 24px;
+  background: var(--anm-lilac);
+  color: #000;
+  font-family: var(--font-mono-ui);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  transition: background-color .18s ease, transform .12s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+.cta:hover { background: var(--anm-lilac-dark); }
+.cta:active { transform: scale(0.98); }
+
+/* Dark CTA variant (pricing cards' "Start ... Protocol" buttons) — needs its
+   own hover/active since Tailwind's !bg-[#323232] utility outranks .cta:hover
+   in specificity and would otherwise silence the base hover state.          */
+.cta--dark {
+  background: #323232;
+  color: #fff;
+  transition: background-color .18s ease, transform .12s ease, box-shadow .18s ease;
+}
+.cta--dark:hover {
+  background: #46433f;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+}
+.cta--dark:active { transform: scale(0.97); }
+
+/* ---- Numbered article section (1-4) ------------------------------------- */
+.numbered__index {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  line-height: 1.2;
+  color: var(--anm-black);
+}
+
+/* ---- Timeline (dot + connector) ----------------------------------------- */
+.timeline-dot {
+  width: 14px; height: 14px; border-radius: 999px;
+  background: var(--anm-lilac); flex: none;
+}
+.timeline-line {
+  width: 2px; flex: 1 1 auto; min-height: 24px;
+  background: var(--anm-line-dark);
+  margin: 4px auto 0;
+}
+
+/* ---- FAQ accordion ------------------------------------------------------- */
+.accordion__item { border-bottom: 1px solid var(--anm-line); }
+.accordion__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 0;
+  min-height: 44px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--anm-black);
+  cursor: pointer;
+}
+.accordion__icon {
+  flex: none;
+  width: 20px; height: 20px;
+  transition: transform .25s ease;
+}
+.accordion__trigger[aria-expanded="true"] .accordion__icon { transform: rotate(180deg); }
+.accordion__panel {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height .3s ease;
+}
+.accordion__panel-inner {
+  padding: 0 0 24px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(29, 29, 29, 0.78);
+  max-width: 60ch;
+}
+@media (prefers-reduced-motion: reduce) {
+  .accordion__panel, .accordion__icon { transition: none; }
+}
+
+/* ---- Stat card (70% ... / 95% ...) -------------------------------------- */
+.stat-card {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--anm-lilac);
+  color: var(--anm-black);
+  padding: 20px 24px;
+  border-radius: var(--radius-sm);
+}
+.stat-card__num { font-family: var(--font-serif); font-size: 36px; line-height: 1.2; }
+.stat-card--soft { background: var(--anm-lilac-soft); }
+
+/* ---- Utility: full-bleed inside a centered container --------------------- */
+.full-bleed {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+/* ---- Story block (section 2) --------------------------------------------
+   bg-story.jpeg (cream fade → jars) covers the FULL-WIDTH wrapper, edge to
+   edge of the viewport. The lilac text block sits on top within the
+   centered content container.                                              */
+.section-story-wrap {
+  background-image: url("../assets/images/bg-story.jpeg");
+  background-size: cover;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+}
+
+/* Mobile: dedicated portrait crop (cream top for the text, jars faded in as
+   a bottom band) — avoids stretching/cropping the wide desktop photo.      */
+@media (max-width: 1023px) {
+  .section-story-wrap {
+    background-image: url("../assets/images/mobile-bg-story.png");
+    background-position: center bottom;
+    background-size: cover;
+    padding-bottom: 220px;
+  }
+}
+
+/* ---- Promo card (single image, desktop/mobile crop) ---------------------
+   The image itself carries all the copy/pricing/CTA artwork; .promo-card__cta
+   is an accessible, invisible link stretched over the "Shop the sale" button
+   drawn in the image, positioned by percentage so it scales with the image.  */
+.promo-card__img { border-radius: var(--radius-md); }
+
+.promo-card__cta {
+  position: absolute;
+  /* Mobile crop (product-promo-mobile.png, 368x451): button measured at
+     x 29.1-70.7%, y 66.3-73.4% — see assets/images note in README. */
+  left: 29%;
+  width: 42%;
+  top: 66.3%;
+  height: 7.1%;
+  min-height: 44px;
+}
+
+@media (min-width: 1024px) {
+  .promo-card__cta {
+    /* Desktop crop (product-promo-desktop.png, 368x603): button measured at
+       x 29.1-70.7%, y 73.8-79.1%. */
+    top: 73.8%;
+    height: 5.3%;
+  }
+}
+
+/* ---- Guarantee banner ("Try it for 60 days") ----------------------------- */
+.guarantee-banner {
+  background-image: url("../assets/images/guarantee-banner.png");
+  background-size: cover;
+  background-position: right center;
+}
+.guarantee-banner__scrim {
+  background-image: linear-gradient(86deg,
+    #231f20 1%,
+    #231f20 52%,
+    rgba(35, 31, 32, 0.24) 69%,
+    rgba(35, 31, 32, 0) 83%);
+}
+
+/* ---- Pricing card -------------------------------------------------------- */
+.plan-card {
+  background: #fff;
+  border: 1px solid var(--anm-line);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.plan-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(29, 29, 29, 0.1);
+}
+.plan-card--featured {
+  border-color: transparent;
+  box-shadow: 0 6px 24px rgba(204, 195, 255, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plan-card, .plan-card:hover { transition: none; transform: none; }
+}
+.plan-badge {
+  font-family: var(--font-mono-ui);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+.price-old { text-decoration: line-through; opacity: 0.45; }
+
+/* Horizontal scroll-snap for pricing on small screens */
+@media (max-width: 1023px) {
+  .plans-scroll {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+    scrollbar-width: thin;
+  }
+  .plans-scroll > * {
+    scroll-snap-align: center;
+    flex: 0 0 88%;
+    max-width: 340px;
+  }
+}
