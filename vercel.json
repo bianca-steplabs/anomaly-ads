@@ -1,5 +1,6 @@
 {
   "buildCommand": null,
   "outputDirectory": ".",
-  "trailingSlash": true
+  "trailingSlash": true,
+  "redirects": [{ "source": "/", "destination": "/why-colostrum/", "permanent": false }]
 }
