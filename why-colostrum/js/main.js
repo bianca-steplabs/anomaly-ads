@@ -27,13 +27,15 @@
 
   /* Forward UTMs from this landing page's URL onto outbound checkout links,
      so GA4 on tryanomalyhealth.com can attribute the sale to the same
-     campaign that drove the visit here. */
+     campaign that drove the visit here. Pricing CTAs additionally get a
+     utm_content identifying which plan was clicked (twelve_week/adults/family),
+     since all three share the same incoming utm_campaign. */
   var TRACKED_PARAMS = ['utm_source', 'utm_medium', 'utm_campaign'];
 
-  function withForwardedParams(url) {
+  function withForwardedParams(url, planContent) {
     var incoming = new URLSearchParams(window.location.search);
     var extra = TRACKED_PARAMS.filter(function (key) { return incoming.has(key); });
-    if (!extra.length) return url;
+    if (!extra.length && !planContent) return url;
 
     var target;
     try {
@@ -42,13 +44,22 @@
       return url;
     }
     extra.forEach(function (key) { target.searchParams.set(key, incoming.get(key)); });
+    if (planContent && extra.length) target.searchParams.set('utm_content', planContent);
     return target.href;
+  }
+
+  function planContentFor(linkPath) {
+    var match = /^plans\.([^.]+)\.url$/.exec(linkPath || '');
+    return match ? match[1] : null;
   }
 
   function applyLinks(data) {
     document.querySelectorAll('[data-link]').forEach(function (el) {
-      var url = resolve(data, el.getAttribute('data-link'));
-      if (typeof url === 'string' && url.length) el.setAttribute('href', withForwardedParams(url));
+      var linkPath = el.getAttribute('data-link');
+      var url = resolve(data, linkPath);
+      if (typeof url === 'string' && url.length) {
+        el.setAttribute('href', withForwardedParams(url, planContentFor(linkPath)));
+      }
     });
     document.querySelectorAll('[data-link-label]').forEach(function (el) {
       var label = resolve(data, el.getAttribute('data-link-label'));
