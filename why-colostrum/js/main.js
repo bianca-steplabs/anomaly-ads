@@ -25,10 +25,30 @@
     }, obj);
   }
 
+  /* Forward UTMs from this landing page's URL onto outbound checkout links,
+     so GA4 on tryanomalyhealth.com can attribute the sale to the same
+     campaign that drove the visit here. */
+  var TRACKED_PARAMS = ['utm_source', 'utm_medium', 'utm_campaign'];
+
+  function withForwardedParams(url) {
+    var incoming = new URLSearchParams(window.location.search);
+    var extra = TRACKED_PARAMS.filter(function (key) { return incoming.has(key); });
+    if (!extra.length) return url;
+
+    var target;
+    try {
+      target = new URL(url, window.location.href);
+    } catch (e) {
+      return url;
+    }
+    extra.forEach(function (key) { target.searchParams.set(key, incoming.get(key)); });
+    return target.href;
+  }
+
   function applyLinks(data) {
     document.querySelectorAll('[data-link]').forEach(function (el) {
       var url = resolve(data, el.getAttribute('data-link'));
-      if (typeof url === 'string' && url.length) el.setAttribute('href', url);
+      if (typeof url === 'string' && url.length) el.setAttribute('href', withForwardedParams(url));
     });
     document.querySelectorAll('[data-link-label]').forEach(function (el) {
       var label = resolve(data, el.getAttribute('data-link-label'));
