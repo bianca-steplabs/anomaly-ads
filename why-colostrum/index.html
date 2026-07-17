@@ -207,7 +207,7 @@
     </section>
 
     <!-- ===================== 3. ADVERTORIAL ARTICLE ===================== -->
-    <section class="bg-anm-cream" aria-labelledby="article-heading">
+    <section class="bg-white" aria-labelledby="article-heading">
       <div class="mx-auto max-w-container px-5 py-8 lg:py-8 flex flex-col lg:flex-row gap-6 items-start">
         <div class="flex-1 min-w-0 flex flex-col gap-3">
           <h2 id="article-heading" class="font-sans text-[24px] lg:text-[30px] leading-tight">Here's Why Colostrum Actually Works</h2>
@@ -359,66 +359,97 @@
     <section id="pricing" class="bg-anm-cream" aria-labelledby="pricing-heading">
       <h2 id="pricing-heading" class="sr-only">Choose your plan</h2>
       <div class="mx-auto max-w-container px-5 py-10 lg:py-12">
-        <ul class="list-none plans-scroll lg:grid lg:grid-cols-3 lg:gap-6">
+        <ul class="list-none plans-scroll lg:grid lg:grid-cols-3 lg:gap-6 lg:items-center">
 
           <!-- 12 Week Plan -->
-          <li class="plan-card bg-anm-lilac !border-anm-lilac rounded-[30px] p-6 pb-6 items-center text-center gap-2 reveal">
-            <span class="plan-badge bg-anm-lilac-soft">Best Value</span>
-            <p class="font-sans text-[28px] lg:text-[32px] mt-3">12 Week Plan</p>
-            <div class="flex items-center gap-6 mt-1">
-              <span class="plan-badge bg-anm-lilac-soft">40% OFF</span>
-              <span class="font-sans text-[12px]">Quarterly</span>
+          <li class="plan-card rounded-[12px] p-6 pb-6 items-center text-center gap-2 reveal">
+            <span class="plan-badge bg-[#AB9EF7]">Best Value</span>
+            <p class="font-serif text-[28px] lg:text-[32px] text-anm-white">12 Week Plan</p>
+            <img src="assets/images/12weekplan.png" width="246" height="188" alt="Three canisters of Anomaly Foundational Blend." class="w-full object-contain rounded-[12px] my-3" loading="lazy" decoding="async" />
+            <div class="flex items-center justify-center gap-2">
+              <span class="plan-badge plan-badge--discount bg-[#f2e5d5] font-bold">40% OFF – Quarterly</span>
             </div>
-            <img src="assets/images/12weekplan.png" width="246" height="188" alt="Three canisters of Anomaly Foundational Blend." class="w-[246px] max-w-full h-[188px] object-contain rounded-[12px] my-3" loading="lazy" decoding="async" />
-            <div class="flex items-center gap-2.5"><span class="font-sans text-[32px] uppercase">$179</span><span class="font-sans text-[32px] uppercase price-old">$297</span><span class="font-sans text-[12px] text-black/40">($2.13/serving)</span></div>
-            <div class="bg-white/25 rounded-[12px] px-6 py-3 w-full max-w-[290px] mt-3 flex flex-col gap-2">
-              <div class="flex items-center justify-center gap-2"><svg class="w-8 h-8 text-anm-black"><use href="#i-gift"/></svg><span class="font-sans text-[14px]">Includes 2 FREE Gifts</span></div>
+            <div class="flex items-end gap-1.5 justify-center">
+              <span class="font-serif text-[32px] text-anm-white">$179</span>
+              <span class="font-sans text-[16px] price-old mb-1">$297</span>
+            </div>
+            <p class="font-sans text-[12px] text-[#acacac]">($2.13/serving)</p>
+            <div class="bg-white rounded-[12px] px-6 py-3 w-full max-w-[290px] mt-3 flex flex-col gap-2">
+              <div class="flex items-center justify-center gap-2"><svg class="w-8 h-8 text-anm-black"><use href="#i-gift"/></svg><span class="font-sans text-[14px] text-anm-black">Includes 2 FREE Gifts</span></div>
               <div class="flex items-center justify-between">
-                <span class="flex items-center gap-2"><img src="assets/images/canister.png" width="32" height="32" alt="Canister" class="w-8 h-8 bg-white rounded-full object-contain" loading="lazy" decoding="async" /><span class="font-sohne font-semibold text-[12px] uppercase">Canister</span></span>
-                <span class="flex items-center gap-2"><img src="assets/images/frother.png" width="32" height="32" alt="Frother" class="w-8 h-8 bg-white rounded-full object-contain" loading="lazy" decoding="async" /><span class="font-sohne font-semibold text-[12px] uppercase">Frother</span></span>
+                <span class="flex items-center gap-2">
+                  <img src="assets/images/canister.png" width="32" height="32" alt="Canister" class="w-8 h-8 border border-anm-lilac bg-white rounded-full object-contain" loading="lazy" decoding="async" />
+                  <span class="font-sohne font-semibold text-[10px] uppercase tracking-[0.5px] text-anm-black">Canister</span>
+                </span>
+                <span class="flex items-center gap-2">
+                  <img src="assets/images/frother.png" width="32" height="32" alt="Frother" class="w-8 h-8 border border-anm-lilac bg-white rounded-full object-contain" loading="lazy" decoding="async" />
+                  <span class="font-sohne font-semibold text-[10px] uppercase tracking-[0.5px] text-anm-black">Frother</span>
+                </span>
               </div>
             </div>
-            <a class="cta cta--dark w-full max-w-[290px] mt-3" data-link="plans.twelve_week.url" data-link-label="plans.twelve_week.label" href="#">Start 12-Week Protocol</a>
+            <a class="cta cta--lilac w-full max-w-[290px] mt-3" data-link="plans.twelve_week.url" data-link-label="plans.twelve_week.label" href="#">Start 12-Week Protocol →</a>
           </li>
 
-          <!-- Adults (Most Popular) -->
-          <li class="plan-card plan-card--featured bg-anm-tan rounded-[30px] p-6 pb-6 items-center text-center gap-2 reveal">
-            <span class="plan-badge bg-anm-lilac">Most Popular</span>
-            <p class="font-sans text-[28px] lg:text-[32px] mt-3">Adults</p>
-            <div class="flex items-center gap-6 mt-1">
-              <span class="plan-badge bg-white">30% OFF</span>
-              <span class="font-sans text-[12px]">Quarterly</span>
+          <!-- Family Pack (Featured – centre) -->
+          <li class="plan-card plan-card--featured rounded-[12px] p-6 pb-8 pt-8 items-center text-center gap-2 reveal">
+            <span class="plan-badge bg-[#AB9EF7]">New</span>
+            <p class="font-serif text-[28px] lg:text-[32px] text-anm-white">Family Pack</p>
+            <img src="assets/images/familypack-card.png" width="246" height="188" alt="Anomaly adult and kids pouches in the Family Pack." class="w-full object-contain rounded-[12px] my-3" loading="lazy" decoding="async" />
+            <div class="flex items-center justify-center gap-2">
+              <span class="plan-badge plan-badge--discount bg-[#f2e5d5] font-bold">37% OFF – Monthly</span>
             </div>
-            <img src="assets/images/adults-card.png" width="246" height="188" alt="A canister of Anomaly Foundational Blend for adults." class="w-[246px] max-w-full h-[188px] object-contain rounded-[12px] my-3" loading="lazy" decoding="async" />
-            <div class="flex items-center gap-2.5"><span class="font-sans text-[32px] uppercase">$69</span><span class="font-sans text-[32px] uppercase price-old">$99</span><span class="font-sans text-[12px] text-black/40">($2.46/serving)</span></div>
-            <div class="bg-white/25 rounded-[12px] px-6 py-3 w-full max-w-[290px] mt-3 flex flex-col gap-2">
-              <div class="flex items-center justify-center gap-2"><svg class="w-8 h-8 text-anm-black"><use href="#i-gift"/></svg><span class="font-sans text-[14px]">Includes 2 FREE Gifts</span></div>
-              <div class="flex items-center justify-between">
-                <span class="flex items-center gap-2"><img src="assets/images/canister.png" width="32" height="32" alt="Canister" class="w-8 h-8 bg-white rounded-full object-contain" loading="lazy" decoding="async" /><span class="font-sohne font-semibold text-[12px] uppercase">Canister</span></span>
-                <span class="flex items-center gap-2"><img src="assets/images/frother.png" width="32" height="32" alt="Frother" class="w-8 h-8 bg-white rounded-full object-contain" loading="lazy" decoding="async" /><span class="font-sohne font-semibold text-[12px] uppercase">Frother</span></span>
-              </div>
+            <div class="flex items-end gap-1.5 justify-center">
+              <span class="font-serif text-[32px] text-anm-white">$99</span>
+              <span class="font-sans text-[16px] price-old mb-1">$158</span>
             </div>
-            <a class="cta cta--dark w-full max-w-[290px] mt-3" data-link="plans.adults.url" data-link-label="plans.adults.label" href="#">Start 4-Week Protocol</a>
-          </li>
-
-          <!-- Family Pack -->
-          <li class="plan-card bg-anm-tan !border-transparent rounded-[30px] p-6 pb-6 items-center text-center gap-2 reveal">
-            <p class="font-sans text-[28px] lg:text-[32px] mt-3">Family Pack</p>
-            <div class="flex items-center gap-6 mt-1">
-              <span class="plan-badge bg-white">37% OFF</span>
-              <span class="font-sans text-[12px]">Quarterly</span>
-            </div>
-            <img src="assets/images/familypack-card.png" width="246" height="188" alt="Anomaly adult and kids pouches in the Family Pack." class="w-[246px] max-w-full h-[188px] object-contain rounded-[12px] my-3" loading="lazy" decoding="async" />
-            <div class="flex items-center gap-2.5"><span class="font-sans text-[32px] uppercase">$99</span><span class="font-sans text-[32px] uppercase price-old">$158</span><span class="font-sans text-[12px] text-black/40 text-left leading-tight max-w-[90px]">1 Adults pouch (Unflavored) + 1 Kids pouch (Berry)</span></div>
-            <div class="bg-white/25 rounded-[12px] px-6 py-3 w-full max-w-[290px] mt-3 flex flex-col gap-2">
-              <div class="flex items-center justify-center gap-2"><svg class="w-8 h-8 text-anm-black"><use href="#i-gift"/></svg><span class="font-sans text-[14px]">Includes 3 FREE Gifts</span></div>
+            <p class="font-sans text-[12px] text-[#acacac] leading-tight">1 Adults pouch (Unflavored) +<br>1 Kids pouch (Berry)</p>
+            <div class="bg-white rounded-[12px] px-6 py-3 w-full max-w-[290px] mt-3 flex flex-col gap-2">
+              <div class="flex items-center justify-center gap-2"><svg class="w-8 h-8 text-anm-black"><use href="#i-gift"/></svg><span class="font-sans text-[14px] text-anm-black">Includes 3 FREE Gifts</span></div>
               <div class="flex items-center justify-around">
-                <span class="flex flex-col items-center gap-1"><img src="assets/images/canister.png" width="32" height="32" alt="Canister" class="w-8 h-8 bg-white rounded-full object-contain" loading="lazy" decoding="async" /><span class="font-sohne font-semibold text-[11px] uppercase">Canister</span></span>
-                <span class="flex flex-col items-center gap-1"><img src="assets/images/frother.png" width="32" height="32" alt="Frother" class="w-8 h-8 bg-white rounded-full object-contain" loading="lazy" decoding="async" /><span class="font-sohne font-semibold text-[11px] uppercase">Frother</span></span>
-                <span class="flex flex-col items-center gap-1"><img src="assets/images/sticks.png" width="32" height="32" alt="Stick Packs" class="w-8 h-8 bg-white rounded-full object-contain" loading="lazy" decoding="async" /><span class="font-sohne font-semibold text-[11px] uppercase">Stick Packs</span></span>
+                <span class="flex flex-col items-center gap-1">
+                  <img src="assets/images/canister.png" width="32" height="32" alt="Canister" class="w-8 h-8 border border-anm-lilac bg-white rounded-full object-contain" loading="lazy" decoding="async" />
+                  <span class="font-sohne font-semibold text-[10px] uppercase tracking-[0.5px] text-anm-black">Canister</span>
+                </span>
+                <span class="flex flex-col items-center gap-1">
+                  <img src="assets/images/frother.png" width="32" height="32" alt="Frother" class="w-8 h-8 border border-anm-lilac bg-white rounded-full object-contain" loading="lazy" decoding="async" />
+                  <span class="font-sohne font-semibold text-[10px] uppercase tracking-[0.5px] text-anm-black">Frother</span>
+                </span>
+                <span class="flex flex-col items-center gap-1">
+                  <img src="assets/images/sticks.png" width="32" height="32" alt="Stick Packs" class="w-8 h-8 border border-anm-lilac bg-white rounded-full object-contain" loading="lazy" decoding="async" />
+                  <span class="font-sohne font-semibold text-[10px] uppercase tracking-[0.5px] text-anm-black">Stick Packs</span>
+                </span>
               </div>
             </div>
-            <a class="cta cta--dark w-full max-w-[290px] mt-3" data-link="plans.family.url" data-link-label="plans.family.label" href="#">Start Family Protocol</a>
+            <a class="cta cta--lilac w-full max-w-[290px] mt-3" data-link="plans.family.url" data-link-label="plans.family.label" href="#">Start Family Protocol →</a>
+          </li>
+
+          <!-- For Adults (Most Popular) -->
+          <li class="plan-card rounded-[12px] p-6 pb-6 items-center text-center gap-2 reveal">
+            <span class="plan-badge bg-[#AB9EF7]">Most Popular</span>
+            <p class="font-serif text-[28px] lg:text-[32px] text-anm-white">For Adults</p>
+            <img src="assets/images/adults-card.png" width="246" height="188" alt="A canister of Anomaly Foundational Blend for adults." class="w-full object-contain rounded-[12px] my-3" loading="lazy" decoding="async" />
+            <div class="flex items-center justify-center gap-2">
+              <span class="plan-badge plan-badge--discount bg-[#f2e5d5] font-bold">30% OFF – Monthly</span>
+            </div>
+            <div class="flex items-end gap-1.5 justify-center">
+              <span class="font-serif text-[32px] text-anm-white">$69</span>
+              <span class="font-sans text-[16px] price-old mb-1">$99</span>
+            </div>
+            <p class="font-sans text-[12px] text-[#acacac]">($2.46/serving)</p>
+            <div class="bg-white rounded-[12px] px-6 py-3 w-full max-w-[290px] mt-3 flex flex-col gap-2">
+              <div class="flex items-center justify-center gap-2"><svg class="w-8 h-8 text-anm-black"><use href="#i-gift"/></svg><span class="font-sans text-[14px] text-anm-black">Includes 2 FREE Gifts</span></div>
+              <div class="flex items-center justify-between">
+                <span class="flex items-center gap-2">
+                  <img src="assets/images/canister.png" width="32" height="32" alt="Canister" class="w-8 h-8 border border-anm-lilac bg-white rounded-full object-contain" loading="lazy" decoding="async" />
+                  <span class="font-sohne font-semibold text-[10px] uppercase tracking-[0.5px] text-anm-black">Canister</span>
+                </span>
+                <span class="flex items-center gap-2">
+                  <img src="assets/images/frother.png" width="32" height="32" alt="Frother" class="w-8 h-8 border border-anm-lilac bg-white rounded-full object-contain" loading="lazy" decoding="async" />
+                  <span class="font-sohne font-semibold text-[10px] uppercase tracking-[0.5px] text-anm-black">Frother</span>
+                </span>
+              </div>
+            </div>
+            <a class="cta cta--lilac w-full max-w-[290px] mt-3" data-link="plans.adults.url" data-link-label="plans.adults.label" href="#">Start 4-Week Protocol →</a>
           </li>
         </ul>
 
