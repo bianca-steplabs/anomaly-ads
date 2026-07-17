@@ -292,8 +292,9 @@ body {
 }
 @media (min-width: 1024px) {
   .guarantee-banner {
-    background-image: url("../assets/images/guarantee-banner.png");
+    background-image: url("../assets/images/desktop-top-Card.png");
     background-position: right center;
+    height: auto;
     min-height: 210px;
     justify-content: center;
   }
