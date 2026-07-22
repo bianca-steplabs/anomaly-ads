@@ -348,15 +348,15 @@ body {
   color: #acacac;
 }
 
-/* Lilac CTA variant (pricing cards) */
+/* Blue CTA variant (pricing cards) */
 .cta--lilac {
-  background: #ab9ef7;
+  background: #7eb8d8;
   color: #fff;
   transition: background-color .18s ease, transform .12s ease, box-shadow .18s ease;
 }
 .cta--lilac:hover {
-  background: #9b8def;
-  box-shadow: 0 4px 14px rgba(171, 158, 247, 0.4);
+  background: #6ba7c9;
+  box-shadow: 0 4px 14px rgba(126, 184, 216, 0.4);
 }
 .cta--lilac:active { transform: scale(0.97); }
 
